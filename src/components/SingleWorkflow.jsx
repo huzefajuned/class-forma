@@ -7,7 +7,7 @@ const SingleWorkflow = ({ data, setData }) => {
   const navigate = useNavigate();
 
   const openMe = (id) => {
-    alert(`i am opened and my id Is ${id}`);
+    // alert(`i am opened and my id Is ${id}`);
     navigate(`/DesignWorkflow/${id}`, { state: id });
   };
   return (
