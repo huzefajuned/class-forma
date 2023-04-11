@@ -11,6 +11,7 @@ const DesignWorkflow = () => {
   const location = useLocation();
   const id = location.state;
 
+// API call 
   useEffect(() => {
     axios
       .get(`${baseUrl}${id}`)
@@ -39,6 +40,7 @@ const DesignWorkflow = () => {
             </span>
           </h1>
           <span className=" text-center text-xl p-2 mx-5 ">Modules</span>
+          {/* Listing All Modules In Left ide of Canvas.  */}
           <ModuleList />
         </div>
         {/* #Canvas for Drag and Drop.. */}

@@ -1,6 +1,15 @@
 import React from "react";
 
-const Pagination = ({ allPages, setPageNo }) => {
+const Pagination = ({ pageNo, setPageNo }) => {
+  const totalWrokflow = 100;
+  const pagePerLimit = 5;
+  const totalPageCount = Math.ceil(totalWrokflow / pagePerLimit);
+  // Calculating Total Pages For Pagination
+  const allPages = Array.from(
+    { length: totalPageCount },
+    (_, index) => index + 1
+  );
+
   const onPageClick = (index) => {
     setPageNo(index + 1);
   };
@@ -10,8 +19,11 @@ const Pagination = ({ allPages, setPageNo }) => {
         {allPages.map((num, index) => {
           return (
             <>
-              <li key={num + index} className=" px-1 py-1 justify-center  text-center items-center ">
-                <a 
+              <li
+                key={num + index}
+                className=" px-1 py-1 justify-center  text-center items-center "
+              >
+                <a
                   className=" px-2 py-2 hover:bg-slate-700  hover:text-white cursor-pointer   "
                   onClick={() => onPageClick(index)}
                 >
