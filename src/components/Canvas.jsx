@@ -42,6 +42,7 @@ const Canvas = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
+  console.log("edges", edges);
   // Trigger This Function For Connecting To Another Node.
   const onConnect = useCallback(
     (params) => {
@@ -49,14 +50,17 @@ const Canvas = () => {
         return params.target === elem.id;
       });
       console.log(targetNode);
-      targetNode[0].style = { width: "200px", border: "1px solid #87CEEB", borderRadius:"100px" };
+      targetNode[0].style = {
+        width: "200px",
+        border: "1px solid #87CEEB",
+        borderRadius: "20px",
+      };
       return setEdges((eds) => addEdge(params, eds));
     },
     [nodes]
   );
   // Trigger This Function For DragOver A Node.
   const onDragOver = useCallback((event) => {
-    
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
   }, []);
@@ -69,7 +73,6 @@ const Canvas = () => {
       const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
       const type = event.dataTransfer.getData("application/reactflow");
       const parsedType = JSON.parse(type);
-      console.log("parsedType ", parsedType);
 
       // check if the dropped element is invalid
       if (typeof type === "undefined" || !type) {
@@ -84,7 +87,11 @@ const Canvas = () => {
         id: getId(),
         type: "custom",
         position,
-        style: { width: "200px", border: "1px solid tomato", borderRadius:"100px" },
+        style: {
+          width: "200px",
+          border: "1px solid red",
+          borderRadius: "30px",
+        },
 
         data: {
           label: `${parsedType.name}`,

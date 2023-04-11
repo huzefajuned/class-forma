@@ -9,12 +9,12 @@ const CustomNode = ({ data }) => {
         position={Position.top}
         style={{
           top: 7,
-          background: "#555",
+          background: "#FE34F8",
           border: "2px solid black",
 
         }}
       />
-      <div className=" flex flex-row  justify-between  w-full bg-white m-auto  rounded-lg	border-dotted border-2 border-gray-600	 text-center items-center  my-2 cursor-pointer ">
+      <div className=" flex flex-row  justify-between  w-full bg-white m-auto  rounded-2xl	 text-center items-center  my-2 cursor-pointer ">
         <span className=" border-r-2 border-gray-400 p-3 text-md ">
           {data.source}
         </span>
@@ -32,7 +32,7 @@ const CustomNode = ({ data }) => {
         id="a"
         style={{
           top: 55,
-          background: "#555",
+          background: "#FE343A",
           border: "2px solid green",
         //   fontSize: "4px",
         }}
